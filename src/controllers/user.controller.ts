@@ -78,5 +78,27 @@ export class UserController {
     this.users.splice(userIndex, 1);
     res.status(200).json({ success: true, message: 'User deleted successfully' });
   };
+
+  // Internal methods for AuthController
+  async createUserInternal(userData: Partial<User>): Promise<User> {
+    const newUser: User = {
+      id: Date.now().toString(),
+      name: userData.name || '',
+      email: userData.email || '',
+      password: userData.password,
+      phone: userData.phone || '',
+      address: userData.address || '',
+      role: userData.role || 'customer',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+
+    this.users.push(newUser);
+    return newUser;
+  }
+
+  async findUserByEmailInternal(email: string): Promise<User | null> {
+    return this.users.find(u => u.email === email) || null;
+  }
 }
 
