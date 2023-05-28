@@ -14,5 +14,21 @@ export class ResponseUtil {
       error: message
     });
   }
-}
 
+  static paginated(
+    res: Response,
+    data: any[],
+    pagination: {
+      page: number;
+      limit: number;
+      total: number;
+      totalPages: number;
+    }
+  ): void {
+    res.status(200).json({
+      success: true,
+      data,
+      pagination
+    });
+  }
+}
