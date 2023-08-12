@@ -16,6 +16,7 @@ import orderRoutes from './routes/order.routes';
 import authRoutes from './routes/auth.routes';
 import searchRoutes from './routes/search.routes';
 import metricsRoutes from './routes/metrics.routes';
+import categoryRoutes from './routes/category.routes';
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/search', searchRoutes);
 app.use('/api/metrics', metricsRoutes);
+app.use('/api/categories', categoryRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
