@@ -80,6 +80,13 @@ src/
 └── index.ts        # Application entry point
 ```
 
+## Development
+
+### Code Style
+- Follow TypeScript best practices
+- Use ESLint for code quality
+- Run `npm run lint:fix` before committing
+
 ## License
 
 MIT
